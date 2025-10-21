@@ -1,12 +1,14 @@
-import { Inter } from 'next/font/google'
-import './globals.css'
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { CartProvider } from '@/context/CartContext';
+import Navbar from '@/components/Navbar';
 
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   weight: ['400', '500', '600', '700'],
   variable: '--font-inter',
-})
+});
 
 export const metadata = {
   title: 'Diwali Delights - Shop Festive Collection',
@@ -22,7 +24,12 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#eab308" />
       </head>
       <body className={`${inter.className} bg-slate-900 text-slate-100`}>
-        {children}
+        <CartProvider>
+          <Navbar />
+          <main className="min-h-screen pt-16">
+            {children}
+          </main>
+        </CartProvider>
       </body>
     </html>
   );
