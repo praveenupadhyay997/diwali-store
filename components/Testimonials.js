@@ -49,7 +49,7 @@ const Testimonials = () => {
                   <p className="text-yellow-400 text-sm">{testimonial.role}</p>
                 </div>
               </div>
-              <p className="text-slate-300">"{testimonial.content}"</p>
+              <p className="text-slate-300">&ldquo;{testimonial.content}&rdquo;</p>
               <div className="flex mt-4 text-yellow-400">
                 {[...Array(5)].map((_, i) => (
                   <svg

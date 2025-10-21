@@ -3,6 +3,7 @@
 import { createAvatar } from '@dicebear/core';
 import { initials } from '@dicebear/collection';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 export default function Avatar({ name, size = 40, className = '' }) {
   const [avatarSvg, setAvatarSvg] = useState('');
@@ -39,10 +40,13 @@ export default function Avatar({ name, size = 40, className = '' }) {
       }}
     >
       {avatarSvg && (
-        <img 
+        <Image 
           src={avatarSvg} 
           alt={name || 'User'} 
+          width={size}
+          height={size}
           className="w-full h-full object-cover"
+          unoptimized={true} // Since we're using data URIs
         />
       )}
     </div>

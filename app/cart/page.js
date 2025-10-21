@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FaShoppingCart, FaTrash, FaPlus, FaMinus, FaArrowLeft, FaLock } from 'react-icons/fa';
 import Link from 'next/link';
@@ -221,11 +222,14 @@ export default function CartPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="w-full md:w-40 h-40 bg-slate-700 rounded-lg overflow-hidden flex-shrink-0">
-                    <img 
+                  <div className="w-full md:w-40 h-40 bg-slate-700 rounded-lg overflow-hidden flex-shrink-0 relative">
+                    <Image 
                       src={item.image} 
                       alt={item.name} 
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 160px"
+                      className="object-cover"
+                      priority
                     />
                   </div>
                   
